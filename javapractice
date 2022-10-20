@@ -4,7 +4,7 @@
 淡季（11月到来年4月）头等舱7折，经济舱6.5折。
 
 public static void main( ){
-
+// 键盘录入 原始价格、月份和舱位
 Scanner sc = new Scanner( System.in );
 Sout(“ Please enter the price: ”);
 Int price = sc.nextInt( );
@@ -12,24 +12,23 @@ Sout(“ Please enter the month: ”);
 Int month = sc.nextInt( );
 Sout(“ Please enter the seat: ”);
 Int seat = sc.nextInt( );
-
+// 调用方法
 Int cost = getPrice( 1000, 5, 1 );
 System.out.println( “Your price is” + cost );
 }
 // “1” represent first class of theflight, “2” represent economy class.
 Public static int getPrice( int price, int month, int seat ){
+// 月份为5~10月时
 If ( 5 <= month <= 10 ){
 If ( seat == 1 ){
 Price = price* 0.9;
-
 } else if ( seat == 2 ){	
 Price = price* 0.85;
-
 } else{
 System.out.println(“ error seat code ”);
  }
 }
-
+月份为11月~来年4月时
 If ( 10 < month <= 12 || month < 4 ){
 If ( seat == 1 ){
 Price = price* 0.7;
@@ -37,7 +36,7 @@ Price = price* 0.7;
 Price = price* 0.65;
 } else{
 System.out.println(“ error seat code ”);
-}
-}
+   }
+ }
 return price;
 }
