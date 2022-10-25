@@ -1,0 +1,32 @@
+开发验证码
+需求：前4位是随机大小写字母，最后一位是数字
+
+Int [ ] arr = new int [ 52 ]; // 定义数组储存52个大小写字母
+For ( i = 0; i < arr.length; i++ ){ 
+// 索引从0开始，最后一个小写字母的索引是25
+    If ( i <= 25 ){
+        // （char）+（数字）可将数字转变成ASCII码
+        // 例如i为0时，储存（97+0）即97，ASCII码的 a
+        // 例如i为1时，储存（97+1）即98，ASCII码的 b
+        Arr[i]=(char)(97 + i); 
+            } else{
+            // 例如i为0时，储存（65+26-26）即65，ASCII码的 A
+            // 例如i为1时，储存（97+27-26）即66，ASCII码的 B
+            Arr[i]=(char)(65 + i - 26);
+            }
+  } 
+// 遍历数组
+For ( i = 0; i < arr.length; i++ ){
+    System.out.print ( arr[ i ] + “ ”);
+}
+// 定义一个空格字符串用于拼接字母和数字
+String result = “ ”;
+Random r = new Random( );
+// 前4个为大小写字母，所以循环抽取4次arr[ ] 中的元素
+For( i = 0 ; i < 5; i++){
+    Int cara = r.nextInt( bound: 52);  // 范围0~51， 对应 arr[ ] 的索引
+    Result = result + arr[cara]; // 循环4次，每次拼接一个随机元素
+}
+Int num = r.nextInt( bound: 10);  // 最后一位是数字，因此范围是0~9
+Result = result + num; // 将前面拼接完的result再次拼接一个随机数
+System.out.println( result ); // 输出result即验证码
