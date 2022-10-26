@@ -3,7 +3,7 @@
 有6名评委给选手打分，分数范围是[ 0~100 ]之间的整数。
 选手的得分为：去掉最高分和最低分的评委后，其余四个评委的平均分。请设计程序计算出选手的得分。
 */
-Public static void main(){
+Public static void main(String[]args){
    // 用一个数组接收 getAll 里返回的成绩
     int[]ori = getAll(); 
    // 遍历
