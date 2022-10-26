@@ -1,0 +1,76 @@
+/*
+第四题：评委打分
+有6名评委给选手打分，分数范围是[ 0~100 ]之间的整数。
+选手的得分为：去掉最高分和最低分的评委后，其余四个评委的平均分。请设计程序计算出选手的得分。
+*/
+Public static void main(){
+   // 用一个数组接收 getAll 里返回的成绩
+    int[]ori = getAll(); 
+   // 遍历
+    for(i = 0; i < ori.length; i++){
+        System.out.print(ori[i]);
+    }
+    int sum = getSum(int[]ori);
+    int max = getMax(int[]ori);
+    int mini = getMini(int[]ori);
+    int avg = (sum - max - mini)/ (ori.length - 2);
+    System.out.println("Score is :" + avg);
+    
+   }
+ 
+Public static int getSum(int[]ori){ // 需要用到 ori[] 数组，因此 ori[] 是参数
+       int sum = 0;
+       for(i = 0; i < ori.length; i++){
+            System.out.print(ori[i] + " ");
+            sum = sum + ori[i];
+            }
+            return sum;
+      }    
+// 数组储存6个评委的打分
+Public static int[] getAll(){
+       Scanner sc = new Scanner(System.in); // 键盘录入
+       int [] arr = new int [6]; // 定义一个长度为 6 的数组
+       for(j = 0; j < arr.length;){
+            System.out.println("Please enter a score:")
+            int oc = sc.nextInt();
+            if(0 <= oc && oc <= 100){  // 当输入的成绩在0~100时，就把值赋给对应的索引
+                arr[j] = oc;
+                System.out.println(oc);
+                j++; // 只有成绩符合范围时，j 的值才会递增，并进行下一次循环
+            } else {
+                System.out.println("Wrong score, score range(0~100)");
+                }
+         }
+         return oc; // 返回每个成绩
+    }
+  
+// 求 ori[] 的最大值
+Public static int getMax(int[]ori){
+       int max = ori[0];
+       for(i = 1; i < ori.length; i++){
+            if( ori[i] > max ){
+                max = ori[i];
+            }                
+       }
+       return max;
+}
+// 求 ori[] 的最小值
+Public static int getMini(int[]ori){
+       int mini = ori[0];
+       for(i = 1; i < ori.length; i++){
+            if( ori[i] < mini ){
+                mini = ori[i];
+            }                
+       }
+       return mini;
+}
+
+
+
+
+
+
+
+
+
+
