@@ -1,32 +1,31 @@
-4.某系统的数字密码（大于0），比如1983，要进行加密传输。 
+import java.util.Scanner;
+/*
+4.某系统的数字密码（大于0），比如1983，要进行加密传输。
 需求：先得到每位数，然后每位数加上5，再对10求余(%)，最后将所有数字反转，最后得到一串新数
 ( 先反转，再运算 )
+ */
+public class test3 {
+    public static void main(String[] args) {
+        // 键盘录入一个密码
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please set a password:");
+        int password = sc.nextInt();
+        // 用一个数记录反转后的密码
+        int reNum = 0;
+        while (password >= 1) {
+            int i = password % 10;
+            reNum = (reNum * 10) + i;
+            password = password / 10;
+         }
+        System.out.println(reNum);
+        String code = " ";
+        while(reNum >= 1){
+            int j = (reNum % 10) + 5; // 每位数加 5
+            int n = j % 10; // 每位数求余
 
-Scanner. sc = new Scanner( System.in );
-	While( true ){
-		System.out.println(“Please set a password:”)
-		Int password = sc.nextInt( );
-		If( password > 0 ){
-			System.out.println( password );
-			Break;
-		} else {
-			System.out.println(“error, password must bigger than 0”);
-		}
+            code = code + n; // 用string字符串拼接每个运算完的数
+            reNum = reNum / 10;
+        }
+        System.out.print("密钥为："+ code);
+      }
 }
-
-	String reNum = “ ”;
-	// 反转密码，用String拼接
-	While(password >= 1){
-		Int temp = password % 10;
-		reNum = reNum + temp;
-	}
-	System.out.println( reNum );
-
-// 运算后，再用一个String字符串拼接，得出新密码
-String newCode = “ ”;
-While(reNum >= 1){
-	Int i = (reNum % 10) + 5;
-	Int j = i % 10;
-	newCode = newCode + j;
-}
-	System.out.println( newCode );
