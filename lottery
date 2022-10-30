@@ -5,3 +5,19 @@
 588元的奖金被抽出
 …………
 */
+public static void main(String[] args) {
+        int[] arr = {2,588,888,1000,10000};
+        Random r = new Random();
+
+        // 打乱原数组的顺序，然后遍历乱序后的数组，即可保证每次抽出的都是随机且不重复的数
+        for (int i = 0; i < 5; i++) {
+            int prize = r.nextInt(arr.length);
+            // 打乱顺序, 用 i 和随机抽出来的索引 prize 交换
+            int temp = arr[i];
+            arr[i] = arr[prize];
+            arr[prize] = temp;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i] + "元的奖金已被抽出");
+        }
+    }
