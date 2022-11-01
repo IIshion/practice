@@ -21,3 +21,36 @@ public static void main(String[] args) {
             System.out.println(arr[i] + "元的奖金已被抽出");
         }
     }
+	
+	
+*******************低效做法
+int[]arr = {2,588,888,1000,10000};
+int[]brr = new int[arr.length];
+Random r = new Random();
+// 有5个奖品，所以循环5次抽奖
+for (int i = 0; i < 5;){
+// 每一次随机抽取一个索引
+	int n = r.nextInt(arr.length);
+// 将元素赋值给 prize	
+	int prize = arr[n];
+// 代入方法判断 prize 是否存在	
+	boolean flag = contains(arr, prize);
+// 返回值为false时，表示当前奖项不存在，把 prize 的值添加到 brr数组 中	
+	if(!flag){
+		brr[n] = prize;
+		i++;
+	}
+}
+// 遍历新数组 brr，得出5个奖项
+for(int j = 0; j < brr.length; j++){
+	System.out.print( brr[j] + "元的奖金已被抽出");
+}
+
+// 定义方法求 prize 是否存在于原数组中
+public static boolean contains(int[]arr, prize){
+	for(i = 0; i < arr.length; i++){
+		if(arr[i] == prize){
+			return true;
+		}
+	} return false;
+}
